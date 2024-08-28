@@ -1,0 +1,28 @@
+﻿@model Company
+
+<h2>Delete a Product</h2>
+<hr />
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="Name"></label>
+            <input asp-for="Name" disabled type="text" class="form-control" />
+        </div>
+        <div class="mb-3">
+            <label asp-for="PhoneNumber"></label>
+            <input asp-for="PhoneNumber" disabled type="text" class="form-control" />
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-danger form-control">Delete</button>
+            </div>
+            <div class="col-6">
+                <a asp-controller="Company" asp-action="Index" class="btn btn-outline-secondary form-control">Back to List</a>
+            </div>
+        </div>
+
+    </div>
+
+</form>

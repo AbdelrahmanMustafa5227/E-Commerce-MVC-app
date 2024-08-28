@@ -1,0 +1,89 @@
+﻿@model ProductVM
+
+<h2>@(Model.Product.Id != 0 ? "Update" : "Create")  Product</h2>
+<hr />
+<div class="row">
+    <div class="col-10">
+        <form method="post" enctype="multipart/form-data">
+            <div class="border p-3 mt-4">
+                <div asp-validation-summary="All"></div>
+                <input asp-for="Product.ImageURL" hidden/>
+                <input asp-for="Product.Id" hidden/>
+                <div class="mb-3">
+                    <label asp-for="Product.Title"></label>
+                    <input asp-for="Product.Title" type="text" class="form-control" />
+                    <span asp-validation-for="Product.Title" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.Description"></label>
+                    <input asp-for="Product.Description" type="text" class="form-control" />
+                    <span asp-validation-for="Product.Description" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.ISBN"></label>
+                    <input asp-for="Product.ISBN" type="text" class="form-control" />
+                    <span asp-validation-for="Product.ISBN" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.Author"></label>
+                    <input asp-for="Product.Author" type="text" class="form-control" />
+                    <span asp-validation-for="Product.Author" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.ImageURL"></label>
+                    <input type="file" name="asd" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.ListPrice"></label>
+                    <input asp-for="Product.ListPrice" type="text" class="form-control" />
+                    <span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.Price"></label>
+                    <input asp-for="Product.Price" type="text" class="form-control" />
+                    <span asp-validation-for="Product.Price" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.Price50"></label>
+                    <input asp-for="Product.Price50" type="text" class="form-control" />
+                    <span asp-validation-for="Product.Price50" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <label asp-for="Product.Price100"></label>
+                    <input asp-for="Product.Price100" type="text" class="form-control" />
+                    <span asp-validation-for="Product.Price100" class="text-danger"></span>
+                </div>
+                <div class="mb-3">
+                    <select asp-for="@Model.Product.Category_Id" asp-items="@Model.CatList" type="text" class="form-select">
+                        <option disabled selected>--Select Category--</option>
+                    </select>
+                    <span asp-validation-for="Product.Category_Id" class="text-danger"></span>
+                </div>
+                <div class="row">
+                    <div class="col-6">
+                        @if (Model.Product.Id != 0)
+                        {
+                            <button type="submit" class="btn btn-primary form-control">Update</button>
+                        }
+                        else
+                        {
+                            <button type="submit" class="btn btn-primary form-control">Create</button>
+                        }
+
+                    </div>
+                    <div class="col-6">
+                        <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary form-control">Back to List</a>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+        </form>
+    </div>
+    <div class="col-2">
+        <img src="@Model.Product.ImageURL" width="100%" />
+    </div>
+</div>
+

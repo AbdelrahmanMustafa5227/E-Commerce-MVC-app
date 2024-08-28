@@ -1,0 +1,32 @@
+﻿@model Category
+
+<h2>Edit An Existing Category</h2>
+<hr />
+<form method="post">
+    <div class="border p-3 mt-4">
+        <div asp-validation-summary="All"></div>
+        <div class="mb-3">
+            <label asp-for="name"></label>
+            <input asp-for="name" type="text" class="form-control" />
+            <span asp-validation-for="name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="displayOrder"></label>
+            <input asp-for="displayOrder" type="text" class="form-control" />
+            <span asp-validation-for="displayOrder" class="text-danger"></span>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <button type="submit" class="btn btn-primary form-control">Update</button>
+            </div>
+            <div class="col-6">
+                <a asp-controller="Category" asp-action="Index" class="btn btn-outline-secondary form-control">Back to List</a>
+            </div>
+        </div>
+
+    </div>
+
+
+
+</form>
